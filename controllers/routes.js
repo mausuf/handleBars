@@ -17,4 +17,11 @@ router.put("/burgers/update", function(req,res){
     });
 });
 
+// Create burgers use POST route
+router.post("/burgers/create", function(req,res){
+    burger.create(req.body.burger_name, function(result){
+        res.redirect("/");
+    });
+});
+
 module.exports = router;

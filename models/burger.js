@@ -9,12 +9,15 @@ var burger = {
         })
     },
 
-    // Update
+    // Update method models
     update: function(id, cb){
         orm.update("burgers", id, cb);
     },
 
-
+    // Create function
+    create: function(name, cb){
+        orm.create("burgers", name, cb);
+    },
 };
 
 

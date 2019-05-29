@@ -17,6 +17,14 @@ var orm = {
         })
     },
 
+    // Create method
+    create: function(tableInput, val, cb){
+        connection.query('INSERT INTO ' + tableInput + " (burger_name) VALUES ('"+val+"');", function(err,result){ // ensure ' ' around val because we are inserting a string as burger name
+            if(err) throw err;
+            cb(result);
+        });
+    },
+
 
 };
 
