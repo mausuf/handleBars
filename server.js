@@ -3,11 +3,11 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override")
-var mysql = requre("mysql");
+var mysql = require("mysql");
 var mysql2 = require("mysql2");
 
 var app = express();
-app.use(express.static(_dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
 
 app.use(bodyParser.urlencoded ({
     extended: false
@@ -20,6 +20,9 @@ app.engine("handlebars", exphbs({
 
 app.set("view engine", "handlebars");
 
+var routes = require("./controllers/routes"); // Reference routes.js
+app.use("/", routes); // Reference routes.js
+
 var port = 3000;
 app.listen(port);
-
+console.log("App connected to port " + port);
