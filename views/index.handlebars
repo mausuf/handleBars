@@ -3,7 +3,7 @@
         <div class="col-xs-12 text-center" id="top-bar">
             <h1>MMmmm Burger</h1>
         </div>
-        <div class="col-xs-6 text-center" id="task">
+        <div class="col-xs-6 text-center" class="task">
             <div class="row">
                 {{#each burger_data}}   {{!-- Loop through burger data, and for each burger object its going to display it's data --}}
                     {{#unless this.devoured}}   {{!-- It will only display burgers that have NOT been devoured --}}
@@ -23,5 +23,14 @@
                 {{/each}}    
             </div>
         </div>
+
+        <div class="col-xs-6 text-center" class="task">
+            {{#each burger_data}}
+                {{#if this.devoured}} {{!-- if this.devoured is true, then create a button that is readonly and has id and burgername of the id that is being passed in --}}
+                    <input class="form-control" type="text" placeholder="{{this.id}}. {{this.burger_name}}" readonly>
+                {{/if}}
+            {{/each}}
+        </div>
+
     </div>
 </div>
